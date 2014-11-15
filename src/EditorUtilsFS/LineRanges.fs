@@ -1,10 +1,10 @@
-﻿namespace FSharpVSPowerTools.Outlining
+﻿namespace EditorUtilsFS
+
 
 open System
 open System.Collections.Generic
 open System.Linq
 open Microsoft.VisualStudio.Text
-open FSharpVSPowerTools
 
 [<AutoOpen>]
 module SpanExtensions =

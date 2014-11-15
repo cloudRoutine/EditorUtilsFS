@@ -1,4 +1,4 @@
-﻿namespace FSharpVSPowerTools.Outlining
+﻿namespace EditorUtilsFS
 
 open System
 open System.Collections.Generic

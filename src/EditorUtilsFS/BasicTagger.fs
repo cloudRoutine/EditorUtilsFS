@@ -1,4 +1,5 @@
-﻿namespace FSharpVSPowerTools.Outlining
+﻿namespace EditorUtilsFS
+
 
 open System
 open System.Collections.Generic
@@ -6,8 +7,7 @@ open System.Linq
 open System.Collections.ObjectModel
 open Microsoft.VisualStudio.Text
 open Microsoft.VisualStudio.Text.Tagging
-open FSharpVSPowerTools.Outlining.Extensions
-
+open Extensions
 
 
 type IBasicTaggerSource<'Tag when 'Tag :> ITag> =

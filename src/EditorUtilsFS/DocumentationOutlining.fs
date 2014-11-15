@@ -1,4 +1,4 @@
-﻿namespace FSharpVSPowerTools.Outlining
+﻿namespace EditorUtilsFS
 
 open System
 open System.Collections.Generic
@@ -6,19 +6,15 @@ open System.Linq
 open System.Text
 open System.ComponentModel.Composition
 open System.Threading
-open EnvDTE
 open Microsoft.VisualStudio.Text.Outlining
 open Microsoft.VisualStudio.Text.Tagging
 open Microsoft.VisualStudio.Text.Classification
 open Microsoft.VisualStudio.Utilities
 open Microsoft.VisualStudio.Text
 open Microsoft.VisualStudio.Text.Editor
-open Microsoft.VisualStudio.Shell.Interop
-open FSharpVSPowerTools.ProjectSystem
 open System.Windows.Threading
-open FSharpVSPowerTools
-open FSharpVSPowerTools.Outlining.Extensions
 open System.Windows.Media
+open Extensions
 
 module DocumentationOutlining =
     
@@ -92,7 +88,6 @@ module DocumentationOutlining =
                 ( regions   : Region list                       )
                 ( snapshot  : ITextSnapshot                     ) : IEnumerable<ITagSpan<IOutliningRegionTag>> = 
         seq {
-                debug "trying to yield tags"
                 if spans.Count = 0 then
                     yield TagSpan(SnapshotSpan(),OutliningRegionTag() :> IOutliningRegionTag) :> ITagSpan<IOutliningRegionTag>
 
@@ -130,7 +125,6 @@ module DocumentationOutlining =
 //            buffer.Changed.Subscribe(self.BufferChanged) |> self.UnsubscribeOnDispose
         do
            
-            debug "Outlining Tagger was created"
             buffer.Changed.Add(self.BufferChanged) 
             
 
@@ -152,15 +146,15 @@ module DocumentationOutlining =
             let newSnapshot  = buffer.CurrentSnapshot
 
 // #region oldcode            
-            ( takeBlocks buffer.CurrentSnapshot.Lines
-                |> Seq.map( fun ln ->
-                ln  |> Seq.map string
-                    |> Seq.reduce ( fun a b -> a + ", " + b )))
-                |> Seq.iter( fun x -> debug "Block -- %A"  x  )    
-            
-            debug "Attempting to reparse"
+//            ( takeBlocks buffer.CurrentSnapshot.Lines
+//                |> Seq.map( fun ln ->
+//                ln  |> Seq.map string
+//                    |> Seq.reduce ( fun a b -> a + ", " + b )))
+//                |> Seq.iter( fun x -> debug "Block -- %A"  x  )    
+//            
+//            debug "Attempting to reparse"
             let newRegions = if newSnapshot <> null then docRegions  newSnapshot.Lines else []
-            debug "Found >>> %A Regions <<<" newRegions.Length
+//            debug "Found >>> %A Regions <<<" newRegions.Length
 
             let oldSpans = self.Regions.Select(fun r -> 
                     (asSnapshotSpan r self.Snapshot).TranslateTo(newSnapshot, SpanTrackingMode.EdgeExclusive).Span)
@@ -239,7 +233,7 @@ module DocumentationOutlining =
 
             //member x.CreateTagger<'T when 'T :> ITag>(buffer: ITextBuffer): ITagger<'T> = 
             member __.CreateTagger(buffer: ITextBuffer) = 
-                debug "trying to create tagger"
+//                debug "trying to create tagger"
                 // buffer.Properties.GetOrCreateSingletonProperty<ITagger<_>>(sc)
                 // UtilFactory.CreateOutlinerTagger(buffer) :?> ITagger<_>
                 // OutliningTagger(buffer) :?> ITagger<_>
@@ -282,7 +276,7 @@ module DocumentationOutlining =
 
             let rec loop cnt =
                 if cnt < snapshotLine.Length then
-                    debug "Looking for cats"
+                    //debug "Looking for cats"
                     let point = snapshot.GetPoint(cnt + snapshotLine.Start.Position)
                     if (self.IsWord(point)) then
                         let span = new SnapshotSpan(snapshot, snapshotLine.Start.Position + cnt, _word.Length);
@@ -295,16 +289,16 @@ module DocumentationOutlining =
         member __.GetTags(span:SnapshotSpan) =
             let tags = new List<ITagSpan<TextMarkerTag>>()
             let lineRange = SnapshotLineRange.CreateForSpan(span);
-            debug "Cat Version %A, Lines %A - %A" span.Snapshot.Version.VersionNumber lineRange.StartLineNumber lineRange.LastLineNumber
+           // debug "Cat Version %A, Lines %A - %A" span.Snapshot.Version.VersionNumber lineRange.StartLineNumber lineRange.LastLineNumber
 
             for snapshotLine in lineRange.Lines do 
                 self.AddWordsOnLine(tags, snapshotLine)
                 _cancellationToken.ThrowIfCancellationRequested()
 
                 // Cats need naps
-            debug "Cat Nap Time"
+       //     debug "Cat Nap Time"
             Thread.Sleep(TimeSpan.FromSeconds(0.10))
-            debug "Cat Wake Up"
+           // debug "Cat Wake Up"
 
             tags.ToReadOnlyCollectionShallow();
 

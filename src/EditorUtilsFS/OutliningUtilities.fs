@@ -1,13 +1,18 @@
-﻿namespace FSharpVSPowerTools.Outlining
+﻿namespace EditorUtilsFS
+
 
 open System
 open System.Collections.Generic
 open Microsoft.VisualStudio.Text
-open FSharpVSPowerTools
-open FSharpVSPowerTools.Outlining.Extensions
+open Extensions
 
 
+[<RequireQualifiedAccess>]
+module Seq =
+    let tryHead s =
+        if Seq.isEmpty s then None else Some (Seq.head s)
 
+    let toReadOnlyCollection (xs: _ seq) = ResizeArray(xs).AsReadOnly()
 
 
 [<AttributeUsage(AttributeTargets.Class ||| AttributeTargets.Method ||| AttributeTargets.Interface)>]
