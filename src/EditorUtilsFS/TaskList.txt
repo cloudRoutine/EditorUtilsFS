@@ -3,7 +3,7 @@ TODO Implement  - EditorHost
 TODO Implement  - EditorHost Factory
 TODO Implement  - EditorUtils Factory
 TODO Implement  - EditorUtils Resources
-TODO Implement  - EditorUtils Trace
+
 TODO Implement  - IProtected Operations
 TODO Implement  - Protected Operations
 TODO Implement  - IBasicUndoHistoryRegistry
@@ -28,5 +28,8 @@ TODO Example    - Use FsXaml to make a toolbar
 TODO Example    - Use FsXaml to make a toolbar
 TODO Example    - Use FsXaml to make a codemap
 
+============
+| Finished |
+============
 
-
+DONE Implement  - EditorUtils Trace
