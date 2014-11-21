@@ -1,20 +1,32 @@
 ﻿
- TODO Implement - EditorHost
- TODO Implement - EditorHost Factory
- TODO Implement - EditorUtils Factory
- TODO Implement - EditorUtils Resources
- TODO Implement - EditorUtils Trace
- TODO Implement - IProtected Operations
- TODO Implement - Protected Operations
- TODO Implement - IBasicUndoHistoryRegistry
- TODO Implement - Contract
- TODO Implement - some stuff in extensions?
- TODO Implement - Basic Undo History
- TODO Implement - Basic Undo History Registry
- TODO Implement - Basic Undo Transaction
- TODO Implement - Working Async Tagger Example
- TODO Testing   - FsUnit + FsCheck testing for all components
+TODO Implement  - EditorHost
+TODO Implement  - EditorHost Factory
+TODO Implement  - EditorUtils Factory
+TODO Implement  - EditorUtils Resources
+TODO Implement  - EditorUtils Trace
+TODO Implement  - IProtected Operations
+TODO Implement  - Protected Operations
+TODO Implement  - IBasicUndoHistoryRegistry
+TODO Implement  - Contract
+TODO Implement  - some stuff in extensions?
+TODO Implement  - Basic Undo History
+TODO Implement  - Basic Undo History Registry
+TODO Implement  - Basic Undo Transaction
+TODO Implement  - Working Async Tagger Example
+TODO Implement  - Cat Tagger
+TODO Implement  - Cat Tagger Format
+TODO Implement  - Cat Tagger Provider
+TODO Implement  - Dog Classifier
+TODO Implement  - Dog Classifier Provider
+TODO Implement  - Dog Tagger Format
 
+
+TODO Testing    - FsUnit + FsCheck testing for all components
+
+
+TODO Example    - Use FsXaml to make a toolbar
+TODO Example    - Use FsXaml to make a toolbar
+TODO Example    - Use FsXaml to make a codemap
 
 
 

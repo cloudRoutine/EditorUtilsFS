@@ -2,7 +2,7 @@
 
 
 open Microsoft.VisualStudio.Text
-open Extensions
+open EditorUtilsFS.Extensions
 
 
 
