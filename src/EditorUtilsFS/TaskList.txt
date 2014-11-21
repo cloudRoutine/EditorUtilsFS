@@ -1,0 +1,20 @@
+﻿
+ TODO Implement - EditorHost
+ TODO Implement - EditorHost Factory
+ TODO Implement - EditorUtils Factory
+ TODO Implement - EditorUtils Resources
+ TODO Implement - EditorUtils Trace
+ TODO Implement - IProtected Operations
+ TODO Implement - Protected Operations
+ TODO Implement - IBasicUndoHistoryRegistry
+ TODO Implement - Contract
+ TODO Implement - some stuff in extensions?
+ TODO Implement - Basic Undo History
+ TODO Implement - Basic Undo History Registry
+ TODO Implement - Basic Undo Transaction
+ TODO Implement - Working Async Tagger Example
+ TODO Testing   - FsUnit + FsCheck testing for all components
+
+
+
+

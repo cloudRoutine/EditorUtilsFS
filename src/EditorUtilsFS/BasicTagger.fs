@@ -10,10 +10,6 @@ open Microsoft.VisualStudio.Text.Tagging
 open Extensions
 
 
-type IBasicTaggerSource<'Tag when 'Tag :> ITag> =
-    abstract GetTags : span:SnapshotSpan -> ReadOnlyCollection<ITagSpan<'Tag>>
-    abstract Changed : IEvent<EventHandler<SnapshotSpanEventArgs>,SnapshotSpanEventArgs>
-
 
 type BasicTagger<'Tag when 'Tag :> ITag> (basicTaggerSource:IBasicTaggerSource<'Tag>) as self =
 

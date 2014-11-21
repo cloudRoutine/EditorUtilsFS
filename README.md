@@ -1,3 +1,3 @@
-# ProjectScaffold
+# EditorUtilsFS
 
-Port of [Jared Par's EditorUtils](https://github.com/jaredpar/EditorUtils) to F#
+Port of [Jared Parsons' EditorUtils](https://github.com/jaredpar/EditorUtils) to F#
